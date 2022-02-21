@@ -1,0 +1,62 @@
+@use "./mixins/makePositionUtilities" as *;
+@use "./mixins/makeResponsivePositionUtilities" as *;
+@use "./base/vars_base" as *;
+@use './base/vars_positions_sizes';
+
+
+// --------------------------------------------------------------
+// -- RESPONSIVE SPACING UTILITIES --
+// --------------------------------------------------------------
+// $directions-list: "x", "y";
+// IMPORTANT: Lists must have multiple lists or a null item
+$y-responsive-padding-sizes: (5, 0, 0), "";
+$x-responsive-padding-sizes: (2, 0, 0), "";
+
+@include makeResponsivePositionUtilities("padding", "p", 'y', $y-responsive-padding-sizes);
+@include makeResponsivePositionUtilities("padding", "p", "x", $y-responsive-padding-sizes);
+
+
+
+// removes any unwanted directions to prevent excessive classes
+// $direction-positions-map: map-remove($direction-positions-map, "t", "b", "l", "r");
+// $magic-padding: map-remove($direction-positions-map, "x", "xy", "t", "b", "l", "r");
+// $magic-margins: map-remove($direction-positions-map, "x", "xy", "t", "b", "l", "r");
+
+// @include makePositionUtilities("margin", "m", $direction-positions-map, $sizes-map);
+// @include makePositionUtilities("margin", "m", $magic-margins, $sizes-map, $magic: true);
+
+// @include makePositionUtilities("padding", "p", $direction-positions-map, $sizes-map);
+// @include makePositionUtilities("padding", "p", $direction-positions-map, $sizes-map, $magic: true);
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+// // --------------------------------------------------------------
+// // -- RESPONSIVE SIZE MAPS --
+// // --------------------------------------------------------------
+// $x-margin-sizes: (3, 2, 1), (3, 3, 2, 1);
+// $y-padding-sizes: (10, 8, 5), (6, 4, 2, 1);
+
+// // remove the unwanted 'directions' from map
+// $responsive-directions: map-remove($direction-positions-map, "xy", "t", "b", "l", "r");
+
+// // --------------------------------------------------------------
+// // -- RESPONSIVE PADDING UTILITIES --
+// // --------------------------------------------------------------
+// // call mixin for each property passing in `directions-map` and
+// // `sizes` for that direction
+// //
+
+// @include makeResponsivePositionUtilities("padding", "p", $responsive-directions, $y-padding-sizes);
+// @include makeResponsivePositionUtilities("padding", "p", $responsive-directions, $y-padding-sizes);
+
+// // --------------------------------------------------------------
+// // -- RESPONSIVE MARGIN UTILITIES --
+// // --------------------------------------------------------------
+// @include makeResponsivePositionUtilities("margin", "m", $responsive-directions, $x-margin-sizes);

@@ -1,0 +1,22 @@
+{
+    "name": "nk_jtb",
+    "description": "SASS responsive utility class creator",
+    "version": "0.0.1",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/naykel76/jtb_ultility_classes.git"
+    },
+    "scripts": {
+        "watch": "sass --watch --no-source-map scss/main.scss:dist/css/main.css scss/dev.scss:dist/css/dev.css",
+        "dev": "parcel index.html",
+        "build": "parcel build index.html"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "parcel-bundler": "^1.12.5",
+        "sass": "^1.49.7"
+    }
+}

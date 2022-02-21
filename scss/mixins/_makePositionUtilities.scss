@@ -1,0 +1,42 @@
+@use "./makeCssProperties" as *;
+@use "../base/vars_base" as *;
+@use '../base/vars_positions_sizes' as *;
+@use "./media" as *;
+@use "sass:map";
+@use "sass:meta";
+@use "sass:list";
+
+// --------------------------------------------------------------
+// -- CREATE POSITION BASED UTILITY CLASSES --
+// --------------------------------------------------------------
+// $property (margin, padding, border ... etc)
+// $prefix for class name ('m' or 'mar' ... etc)
+// $direction-map (x:('left', 'right'), ... etc)
+//
+// Class Structure: {prefix}{direction}-{size}
+//
+// Example Usage:
+//
+
+@mixin makePositionUtilities($property, $prefix, $directions-map, $sizes, $magic: false) {
+    // each $direction (x, y ...) in map, has positions-list (top, bottom ...)
+    @each $direction, $positions-list in $directions-map {
+        @each $size-key, $size in $sizes {
+            // set size key null if default, else -{size}
+            $key: if($size-key == "default", "", -#{$size-key});
+            // create base class
+            $class: #{$prefix}#{$direction}#{$key};
+            // add direct descendant combinator if magic class
+            $class: if($magic, "children-#{$class} > *", #{$class});
+
+            .#{$class} {
+                @if ($direction == "xy") {
+                    #{$property}: #{$size};
+                } @else {
+                    @include makeCssProperties($property, #{$size}, $positions-list);
+                }
+            }
+        }
+    }
+}
+

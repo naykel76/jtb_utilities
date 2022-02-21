@@ -1,0 +1,25 @@
+$content-gap: 1.25em;
+
+// ==========================================================================
+// -- Responsive Sizes and Breakpoints --
+// ==========================================================================
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1600px,
+);
+
+// translate breakpoints into user friendly names for easy reference
+// IMPORTANT: in terms of device-only, mobile is anything under 767px
+
+$xs: map-get($breakpoints, xs);
+$sm: map-get($breakpoints, sm);
+$mobile-portrait: map-get($breakpoints, xs);
+$mobile-landscape: map-get($breakpoints, sm);
+$tablet: map-get($breakpoints, md);
+$laptop: map-get($breakpoints, lg);
+$desktop: map-get($breakpoints, xl);
+$widescreen: map-get($breakpoints, xxl);

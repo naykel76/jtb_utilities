@@ -1,0 +1,11 @@
+// --------------------------------------------------------------
+// -- CREATE POSITION BASED CSS PROPERTIES --
+// --------------------------------------------------------------
+// accepts a list of positions then iterates through creating the
+// property as passing in the arguments
+
+@mixin makeCssProperties($property, $value, $positions) {
+    @each $position in $positions {
+        #{$property}-#{$position}: $value;
+    }
+}
